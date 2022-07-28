@@ -1,0 +1,238 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,100;1,400&display=swap');
+
+body {
+    margin:0;
+    font-family:'Noto Sans',sans-serif;
+}
+body *{
+    box-sizing: border-box;
+}
+
+.main-login{
+    width:100vw;
+    height: 100vh;
+    background: #201b2c;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+
+.left-login{
+    width: 50vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+.left-login-image{
+    width:30vw;
+}
+
+.left-login > h1{
+    font-size:3vw;
+    color:#77ffc0;
+}
+
+.right-login{
+    width:50vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.card-login{
+    width:60%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:30px 35px;
+    background:#2f2841;
+    border-radius:20px;
+    box-shadow:0px 10px 40px #00000056;
+    color:#f0ffffde;
+}
+
+.card-login > h1{
+    color:#00ff88;
+    font-weight: 800;
+    margin:0;
+}
+
+.card-login > h2{
+    color:#00ff88;
+    font-weight: 800;
+    margin:0;
+}
+
+.textfield{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.textfield > input{
+    width:100%;
+    border:none;
+    border-radius:10px;
+    padding:15px;
+    background:#514869;
+    color:#f0ffffde;
+    font-size:12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline:none;
+    box-sizing:border-box;
+    margin:10px 0px;
+}
+
+form-text text-muted > small{
+    color:#f0ffffde;
+    font-size: 2vmin;
+}
+
+.textfield > label {
+    color:#f0ffffde;
+    margin-bottom:2vh;
+}
+
+.textfield > input::placeholder{
+    color:#f0ffffde;
+}
+
+.redirecionamento-esquerda{
+    margin-top:1%;
+    margin-bottom:1%;
+}
+
+.redirecionamento-esquerda > a{
+    
+    font-size:1em;
+    width:100%;
+    padding:1.5vh 12vh;
+    margin-top:50%;
+    margin-bottom:10%;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #f0ffffde;
+    background: #201b2c;
+    cursor: pointer;
+    box-shadow:0px 10px 40px -12px #514869;
+    text-decoration:none;
+}  
+.redirecionamento-esquerda > a:hover{
+    padding:2vw 12vh;
+    color: #f0ffffde;
+    background: #2b134b;
+}  
+.redirecionamento-direita{
+    margin-top:1%;
+    margin-bottom:1%;
+}
+                                                        
+.redirecionamento-direita > a{
+    font-size:0.75em;
+    padding:2vh 9vh;
+    margin-top:10%;
+    margin-bottom:10%;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #2b134b;
+    background: #77ffc0;
+    cursor: pointer;
+    box-shadow:0px 10px 40px -12px #514869;
+    text-decoration:none;
+    text-align: center;
+}
+
+.redirecionamento-direita > a:hover{
+    width:100%;
+    padding:2vw 9vh;
+    text-decoration:none;
+    text-align: center;
+    box-shadow:0px 10px 40px -12px #f0ffffde;
+}
+
+
+.btn-login{
+   font-size:1em;
+   width:100%;
+   padding:1.5vh 2vh;
+   margin-top:10%;
+   margin-bottom:10%;
+   border: none;
+   border-radius: 8px;
+   outline: none;
+   text-transform: uppercase;
+   font-weight: 800;
+   letter-spacing: 2px;
+   color: #2b134b;
+   background: #00ff88;
+   cursor: pointer;
+   box-shadow:0px 10px 40px -12px #00ff0052;	
+}
+
+.btn-login:hover{
+    width:100%;
+    background-color: #f0ffffde !important;
+    box-shadow:0px 10px 40px -12px #00ff0052;
+    border: none;
+    border-radius: 8px;
+}
+
+.requiredField{
+    color:#f0ffffde;
+}
+
+@media only screen and (max-width:950px){
+.card-login{
+    width:85%;
+}
+.redirecionamento-direita > a{
+    width:85%;
+}
+.redirecionamento-esquerda > a{
+    width:85%;
+}
+}
+@media only screen and (max-width:600px){
+.main-login{
+    flex-direction:column;
+}
+.left-login > img{
+    display:none;
+}
+.left-login > h1{
+    display:none;
+    }
+.right-login{
+    width:100%;
+    height: auto;
+}
+.left-login-image{
+    width: 50vh;
+}
+.card-login{
+    width:90%;
+}
+
+.temperatura{
+    
+}
+.
+
+}

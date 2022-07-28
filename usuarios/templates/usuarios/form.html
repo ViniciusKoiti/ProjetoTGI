@@ -1,0 +1,59 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+   
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'css/css.css' %}" rel="stylesheet">
+  
+{% block title %}<title>Cadastro</title>{% endblock %}
+</head>
+
+<body>
+    
+  
+    <div class="main-login">
+      {% block img %}
+      <div class="left-login"><h1>Faça o cadastro
+        </h1>
+        <img src="{% static 'img/imagemanimadadados.svg' %}" class="left-login-image" alt="figura animada dados">
+      </div>
+    {% endblock %}
+      {% block card %}
+      <div class="right-login">
+  
+        <div class="card-login">
+          <h1>CADASTRO</h1><br>
+          <form method="post">
+			{% csrf_token %}
+			{{ form|crispy }}
+          <button class="btn-login">Cadastro</button>
+
+          </form>
+            
+          </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    
+<script>
+  
+  $(document).ready(function(){
+  
+    $("#id_cpf").mask("000.000.000-00");
+  
+  });
+
+</script>
+    
+</body>
+</html>
