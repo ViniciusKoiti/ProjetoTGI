@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <title>Bootstrap 4 Template with Sidebar Menu</title>
+        <title>Central</title>
 
         <!-- CSS -->
 
@@ -76,12 +76,12 @@
 			      One of three columns
 			      <div class="card-login">
 				<h2>Amostra</h2>
-				  <p class="text-sm-left">Tempo: </p>
-				  <p class="text-sm-left">Temperatura: </p>
+				  <p class="text-sm-left">Tempo: <div class="countdown"></div></p>
+				  <p class="text-sm-left">Temperatura:  <div class="temperatura"><img src="{% static 'img/celsius.png' %}"></div></p>
 				  <p class="text-sm-left">PH: </p>
 				  
 				
-	    <button type="button" class="btn btn-login" data-toggle="modal" data-target="#myModal">Iniciar Análise</button>
+	    <button type="button" class="btn btn-login" data-toggle="modal" data-target="#myModal" style="width:100%;">Iniciar Análise</button>
 
       <!-- Modal -->
 	    <div class="modal fade" id="myModal" role="dialog">
@@ -94,15 +94,30 @@
 			<h4 class="modal-title" style="text-align:center;">Cadastre sua amostra</h4>
 		      </div>
 		      <div class="modal-body">
-			<form method="post">
+			
+			<form action="" method="POST">
 			  {% csrf_token %}
-			  {% crispy form %}
+			
+			  {% crispy temperatura %}
+			  {% crispy PH %}
+			  {% crispy amostra %}
+			
+			
+			  <button class="btn-login" id="botao" data-dismiss="modal">Iniciar</button>
+			  
+			
+			
+			  
+			
+			  
+			</form>
 			
 		      </div>
+			
 		      <div class="modal-footer">
-			<button type="button" class="btn-login" data-dismiss="modal">Iniciar</button>
+
 		      </div>
-		      </form>
+		     
 		    </div>
       
 	</div>
@@ -128,23 +143,83 @@
 	      
 
 	        <!-- End content -->
-      
 
-        
-        
-		
         <!-- Javascript -->
   <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
   <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/popper.js.map' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
+
   
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-        });
-    </script>
-    </body>
+	    
+	    pausa = true;
+	    $('.countdown').hide();
+	    $('#botao').click(function(){
+		$(".countdown").show();
+		
+		pausa = false;
+		console.log(x);
+		var dataModelPython_Amostra_horario_fim = '2022-08-10 22:14:49.550547';
 
+		var ano = dataModelPython_Amostra_horario_fim.slice(0,4);
+		var mes = dataModelPython_Amostra_horario_fim.slice(5,7);
+		var dia = dataModelPython_Amostra_horario_fim.slice(8,10);
+		var horas = dataModelPython_Amostra_horario_fim.slice(11,13);
+		var minutos = dataModelPython_Amostra_horario_fim.slice(14,16);
+		var segundos = dataModelPython_Amostra_horario_fim.slice(17,19);
+
+		var anoDeStringParaInteiro = parseInt(ano,10);
+		var mesDeStringParaInteiro = parseInt(mes,10);
+		var diaDeStringParaInteiro = parseInt(dia,10);
+		var horasStringParaInteiro = parseInt(horas,10);
+		var minutosStringParaInteiro = parseInt(minutos,10);
+		var segundosDeStringParaInteiro = parseInt(segundos,10);
+		var dataJavaScript = new Date(anoDeStringParaInteiro,mesDeStringParaInteiro,diaDeStringParaInteiro,horasStringParaInteiro,minutosStringParaInteiro,segundosDeStringParaInteiro);
+	    
+		var x = setInterval(function(){
+     
+		  if (pausa) clearInterval(x);
+	
+		  var agora = new Date().getTime();
+	
+		  var distancia = dataJavaScript - agora;
+	
+		  var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+		  var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+		  var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+	 
+		  horas = (horas < 10) ? '0' + horas : horas;
+		  minutos = (minutos < 10) ? '0' + minutos : minutos;
+		  segundos = (segundos < 10) ? '0' + segundos : segundos;
+	     
+		  $('.countdown').html(horas + ':' + minutos + ':' + segundos);
+		  timer2 = horas + ':' + minutos + ':' + segundos;
+		  if ((horas <=0) && (segundos <= 0) && (minutos <= 0)) clearInterval(x);
+		  
+	}, 1000);
+  }); 
+  
+  
+  setInterval(temperatura,5000);
+  
+  function temperatura() {
+  $.get("/conecao_temperatura",function(temperatura){
+	$('.temperatura').html(temperatura + "°C")  
+		}
+		
+		)};
+  
+});
+	
+    </script>
+    
+  
+  
 </html>
